@@ -1,0 +1,24 @@
+<h2>List Of Animals</h2>
+<ul class="animals">
+    <li *ngFor="let animal of animals" 
+        [class.selected]="animal === selectedAnimal"
+        (click)="onSelect(animal)">
+        <span class="badge">{{animal.id}}</span>
+        {{animal.name}} |
+        {{animal.type}} |
+        {{animal.habitat}} |
+        {{animal.numLegs}} |
+        {{animal.canFly}}
+    </li>
+</ul>
+
+<div id='selectedAnimal' *ngIf="selectedAnimal">
+    <h2 id="selectedAnimalTitle">{{selectedAnimal.name}}</h2>
+    <div>
+        <span class="selectedAnimal-types">Animal type:</span>  {{selectedAnimal.type}}
+        <span class="selectedAnimal-types">Animal habitat:</span>  {{selectedAnimal.habitat}}
+        <span class="selectedAnimal-types">Number of legs:</span>  {{selectedAnimal.numLegs}}
+        <span class="selectedAnimal-types">Can it fly?:</span>  {{selectedAnimal.canFly}}
+    </div>
+
+</div>
